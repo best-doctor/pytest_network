@@ -16,7 +16,7 @@ def pytest_addoption(parser):
         '--disable-network',
         action='store_true',
         dest='disable_network',
-        help='Monkeypatch socket.socket.connect.'
+        help='Monkeypatch socket.socket.connect.',
     )
 
 
