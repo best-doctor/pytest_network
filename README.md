@@ -8,8 +8,8 @@ A simple pytest plugin to disable network on socket level.
 
 ## Usage
 
-`pytest-network` has a flag `--disable-network` that will raise an error if tests will try to use
-`socket.socket.connect`
+`pytest-network` has a flag `--disable-network` that will raise an error
+if tests will try to use `socket.socket.connect`
 
 You can use it directly like:
 
@@ -48,7 +48,8 @@ def test_network_request_is_ok(disable_network):
 
 ## Development
 
-To setup development environment you must first create a virtual environment. For example:
+To setup development environment you must first create a virtual environment.
+For example:
 
 `$ python3.8 -m venv <venv-name>`
 
@@ -68,14 +69,17 @@ Check that tests are running:
 
 We would love you to contribute to our project. It's simple:
 
-* Create an issue with bug you found or proposal you have. Wait for approve from maintainer.
+* Create an issue with bug you found or proposal you have.
+  Wait for approve from maintainer.
 * Create a pull request. Make sure all checks are green.
 * Fix review comments if any.
 * Be awesome.
 
 Here are useful tips:
 
-* You can run all checks and tests with make check. Please do it before TravisCI does.
+* You can run all checks and tests with make check.
+  Please do it before TravisCI does.
 * We use [BestDoctor python styleguide](https://github.com/best-doctor/guides/blob/master/guides/python_styleguide.md).
   Sorry, styleguide is available only in Russian for now.
-* We respect [Django CoC](https://www.djangoproject.com/conduct/). Make soft, not bullshit.
+* We respect [Django CoC](https://www.djangoproject.com/conduct/).
+  Make soft, not bullshit.

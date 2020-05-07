@@ -2,7 +2,7 @@
 from setuptools import setup
 
 
-def get_long_description(fname) -> str:
+def get_long_description() -> str:
     with open('README.md') as f:
         return f.read()
 
