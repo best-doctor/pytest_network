@@ -7,8 +7,10 @@ def get_long_description() -> str:
         return f.read()
 
 
+package_name = 'pytest_network'
+
 setup(
-    name='pytest-network',
+    name=package_name,
     version='0.0.1',
     author='Artem Lomonosov',
     author_email='mcproger7@gmail.com',
@@ -18,7 +20,7 @@ setup(
     url='https://github.com/best-doctor/pytest_network',
     description='A simple plugin to disable network on socket level.',
     long_description=get_long_description(),
-    py_modules=['pytest_network'],
+    py_modules=[package_name],
     install_requires=['pytest>=5.3.1'],
     classifiers=[
         'Framework :: Pytest',
