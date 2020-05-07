@@ -20,6 +20,7 @@ setup(
     url='https://github.com/best-doctor/pytest_network',
     description='A simple plugin to disable network on socket level.',
     long_description=get_long_description(),
+    long_description_content_type='text/markdown',
     py_modules=[package_name],
     install_requires=['pytest>=5.3.1'],
     classifiers=[
