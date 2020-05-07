@@ -1,5 +1,5 @@
 test:
-	python3 -m pytest
+	python -m pytest --cov=pytest_network --cov-report=xml
 
 style:
 	flake8 pytest_network.py
