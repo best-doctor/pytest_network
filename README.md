@@ -1,5 +1,10 @@
 # pytest-network
 
+[![Build Status](https://travis-ci.org/best-doctor/pytest_network.svg?branch=master)](https://travis-ci.org/best-doctor/pytest_network)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1f243263e78f38f92a31/maintainability)](https://codeclimate.com/github/best-doctor/pytest_network/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1f243263e78f38f92a31/test_coverage)](https://codeclimate.com/github/best-doctor/pytest_network/test_coverage)
+
+
 A simple pytest plugin to disable network on socket level.
 
 ## Installation
