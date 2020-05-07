@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/best-doctor/pytest_network.svg?branch=master)](https://travis-ci.org/best-doctor/pytest_network)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f243263e78f38f92a31/maintainability)](https://codeclimate.com/github/best-doctor/pytest_network/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1f243263e78f38f92a31/test_coverage)](https://codeclimate.com/github/best-doctor/pytest_network/test_coverage)
+[![PyPI version](https://badge.fury.io/py/pytest_network.svg)](https://badge.fury.io/py/pytest_network)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytest_network)](https://pypi.org/project/pytest_network/)
 
 A simple pytest plugin to disable network on socket level.
 
