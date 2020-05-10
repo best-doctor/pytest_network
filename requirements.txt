@@ -28,5 +28,4 @@ safety==1.9.0
 dlint==0.10.3
 flake8-if-statements==0.1.0
 flake8-functions==0.0.4
-flake8-annotations-coverage==0.0.4
 flake8-expression-complexity==0.0.7
