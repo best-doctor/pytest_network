@@ -46,7 +46,7 @@ or directly enable (if you have default `--disable-network` flag):
 import requests
 
 
-def test_network_request_is_ok(disable_network):
+def test_network_request_is_ok(enable_network):
     response = requests.get('https://github.com')
 
     assert response.status_code == 200  # this will pass
