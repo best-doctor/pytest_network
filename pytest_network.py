@@ -10,7 +10,7 @@ class NetworkUsageException(Exception):  # pragma: no cover
 _original_connect = socket.socket.connect  # pragma: no cover
 
 
-def pytest_addoption(parser):  # pragma: no cover
+def pytest_addoption(parser):
     group = parser.getgroup('network')
     group.addoption(
         '--disable-network',
@@ -25,24 +25,24 @@ def pytest_configure(config):  # pragma: no cover
     config.addinivalue_line('markers', 'enable_network: disables network in marked test')
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True)  # pragma: no cover
 def _network_marker(request):
     if request.config.getoption('--disable-network'):
         request.getfixturevalue('disable_network')
 
 
-def patched_connect(*args, **kwargs):
+def patched_connect(*args, **kwargs):  # pragma: no cover
     raise NetworkUsageException
 
 
-@pytest.fixture
+@pytest.fixture  # pragma: no cover
 def enable_network():
     socket.socket.connect = _original_connect
     yield
     socket.socket.connect = patched_connect
 
 
-@pytest.fixture
+@pytest.fixture  # pragma: no cover
 def disable_network():
     socket.socket.connect = patched_connect
     yield
@@ -50,14 +50,22 @@ def disable_network():
 
 
 def pytest_runtest_call(item):
-    if list(item.iter_markers(name='disable_network')):
-        socket.socket.connect = patched_connect
-    if list(item.iter_markers(name='enable_network')):
-        socket.socket.connect = _original_connect
+    marks_to_connect_mapper = [
+        ('disable_network', patched_connect),
+        ('enable_network', _original_connect),
+    ]
+    for mark_name, connect_mock in marks_to_connect_mapper:
+        if list(item.iter_markers(name=mark_name)):
+            if socket.socket.connect != connect_mock:
+                socket.socket.connect = connect_mock
 
 
 def pytest_runtest_teardown(item):
-    if list(item.iter_markers(name='disable_network')):
-        socket.socket.connect = _original_connect
-    elif list(item.iter_markers(name='enable_network')):
-        socket.socket.connect = patched_connect
+    marks_to_connect_mapper = [
+        ('disable_network', _original_connect),
+        ('enable_network', patched_connect),
+    ]
+    for mark_name, connect_mock in marks_to_connect_mapper:
+        if list(item.iter_markers(name=mark_name)):
+            if socket.socket.connect != connect_mock:
+                socket.socket.connect = connect_mock
