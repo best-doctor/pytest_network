@@ -46,7 +46,7 @@ or directly enable (if you have default `--disable-network` flag):
 import requests
 
 
-def test_network_request_is_ok(disable_network):
+def test_network_request_is_ok(enable_network):
     response = requests.get('https://github.com')
 
     assert response.status_code == 200  # this will pass
@@ -85,7 +85,6 @@ Here are useful tips:
 
 * You can run all checks and tests with make check.
   Please do it before TravisCI does.
-* We use [BestDoctor python styleguide](https://github.com/best-doctor/guides/blob/master/guides/python_styleguide.md).
-  Sorry, styleguide is available only in Russian for now.
+* We use [BestDoctor python styleguide](https://github.com/best-doctor/guides/blob/master/guides/en/python_styleguide.md).
 * We respect [Django CoC](https://www.djangoproject.com/conduct/).
   Make soft, not bullshit.
