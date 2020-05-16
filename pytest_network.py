@@ -20,6 +20,11 @@ def pytest_addoption(parser):
     )
 
 
+def pytest_configure(config):
+    config.addinivalue_line('markers', 'disable_network: disables network in marked test')
+    config.addinivalue_line('markers', 'enable_network: disables network in marked test')
+
+
 @pytest.fixture(autouse=True)
 def _network_marker(request):
     if request.config.getoption('--disable-network'):
@@ -42,3 +47,17 @@ def disable_network():
     socket.socket.connect = patched_connect
     yield
     socket.socket.connect = _original_connect
+
+
+def pytest_runtest_call(item):
+    if list(item.iter_markers(name='disable_network')):
+        socket.socket.connect = patched_connect
+    if list(item.iter_markers(name='enable_network')):
+        socket.socket.connect = _original_connect
+
+
+def pytest_runtest_teardown(item):
+    if list(item.iter_markers(name='disable_network')):
+        socket.socket.connect = _original_connect
+    elif list(item.iter_markers(name='enable_network')):
+        socket.socket.connect = patched_connect

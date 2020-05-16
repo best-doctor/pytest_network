@@ -52,6 +52,9 @@ def test_network_request_is_ok(enable_network):
     assert response.status_code == 200  # this will pass
 ```
 
+You can use test marks instead of fixtures: add `@pytest.mark.disable_network`
+or `@pytest.mark.enable_network` to disable or enable network in test.
+
 ## Development
 
 To setup development environment you must first create a virtual environment.
