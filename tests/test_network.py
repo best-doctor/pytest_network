@@ -25,7 +25,7 @@ def test_disable_network_addopt_raises_exception(testdir):
     testdir.makepyfile(
         """
         import urllib.request
-        
+
         import pytest
 
 
