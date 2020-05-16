@@ -3,14 +3,14 @@ import socket
 import pytest
 
 
-class NetworkUsageException(Exception):
+class NetworkUsageException(Exception):  # pragma: no cover
     pass
 
 
-_original_connect = socket.socket.connect
+_original_connect = socket.socket.connect  # pragma: no cover
 
 
-def pytest_addoption(parser):
+def pytest_addoption(parser):  # pragma: no cover
     group = parser.getgroup('network')
     group.addoption(
         '--disable-network',
@@ -20,7 +20,7 @@ def pytest_addoption(parser):
     )
 
 
-def pytest_configure(config):
+def pytest_configure(config):  # pragma: no cover
     config.addinivalue_line('markers', 'disable_network: disables network in marked test')
     config.addinivalue_line('markers', 'enable_network: disables network in marked test')
 

@@ -1,4 +1,5 @@
 import pytest
+from pytest_network import patched_connect, NetworkUsageException
 
 
 def test_disable_network_fixture_raiese_exception(testdir):
@@ -102,3 +103,8 @@ def test_enable_pytest_mark_workds(testdir):
     result = testdir.runpytest('--verbose')
 
     assert result.parseoutcomes() == {'passed': 1}
+
+
+def test_patched_connect_always_raises_error():
+    with pytest.raises(NetworkUsageException):
+        patched_connect()

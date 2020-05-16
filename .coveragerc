@@ -1,5 +1,8 @@
+[run]
+branch = True
+
 [report]
 exclude_lines =
-    # Ignore imports
     from
     import
+    pragma: no cover
